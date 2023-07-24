@@ -10,7 +10,7 @@ export default function Home() {
         Lazy Image Loading
       </Link>
       <Link to="/swipper-cards" className="btn btn-primary">
-        Infinite Scroll
+        Swiper JS
       </Link>
     </div>
   );
