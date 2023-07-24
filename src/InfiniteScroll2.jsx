@@ -16,7 +16,7 @@ export default function InfiniteScroll2() {
     setTimeout(() => {
       fetchData();
       setLoading(false);
-    }, 2000);
+    }, 1000);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
@@ -37,7 +37,7 @@ export default function InfiniteScroll2() {
   useEffect(() => {
     window.addEventListener("scroll", handleInfiniteScroll);
     return () => window.removeEventListener("scroll", handleInfiniteScroll);
-  });
+  }, []);
 
   return (
     <div className="container">
