@@ -9,7 +9,7 @@ export default function InfiniteScroll() {
     try {
       setLoading(true);
       const response = await fetch(
-        `https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=10`
+        `https://jsonplaceholder.typicode.com/posts?_limit=10&_page=${page}`
       );
       const newData = await response.json();
       setData((prevData) => [...prevData, ...newData]);
@@ -26,8 +26,8 @@ export default function InfiniteScroll() {
 
   const handleScroll = () => {
     const isBottom =
-      window.innerHeight + document.documentElement.scrollTop <
-      document.documentElement.offsetHeight;
+      window.innerHeight + document.documentElement.scrollTop + 1 >=
+      document.documentElement.scrollHeight;
 
     if (isBottom && !loading) {
       setPage((prevPage) => prevPage + 1);
